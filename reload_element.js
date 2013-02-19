@@ -1,23 +1,25 @@
 (function ($)
 {
 
-  $.fn.reloadElement = function ()
+  $.fn.reOutput = function ()
   {
-    $(this).each(function (i, e)
+    $(this).replaceWith(function ()
     {
-      var el = $(e);
-
-      var wrapper = el.clone().wrap('<p>').parent();
-      wrapper.find('img, script, link').each(function (i, e)
-      {
-        var el = $(e);
-        var attrname = $(el).is('link') ? 'href' : 'src';
-        var src = el.attr(attrname);
-        src = (src.replace(/(\?|&)_t=[0-9]+&?/, '$1') + ((src.indexOf('?') === -1) ? '?' : '&') + '_t=' + +new Date()).replace(/&&/, '&').replace(/?&/, '?');
-        el.removeAttr(attrname).attr(attrname, src);
-      });
-
-      el.replaceWith(wrapper.html());
+      return $(this)
+        .clone()
+        .wrap('<p class="temp_wrapper">')
+        .parent()
+        .find('img, script, link, iframe[src]')
+        .each(function ()
+          {
+            var el = $(this);
+            var attrname = $(el).is('link') ? 'href' : 'src';
+            var src = el.attr(attrname);
+            src = (src.replace(/(\?|&)_t=[0-9]+&?/, '$1') + ((src.indexOf('?') === -1) ? '?' : '&') + '_t=' + +new Date()).replace(/&&/, '&').replace(/\?&/, '?');
+            el.attr(attrname, src);
+          })
+        .closest('p.temp_wrapper')
+        .html();
     });
     return $(this);
   }
