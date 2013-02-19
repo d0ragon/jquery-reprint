@@ -9,3 +9,7 @@ Usage:
 ```javascript
 $(selector).reprint();
 ```
+
+###### To-do list:
+1. Replace all of regular expressions with a nicer one.
+2. Find out memory usage.
