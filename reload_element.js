@@ -1,7 +1,7 @@
 (function ($)
 {
 
-  $.fn.reOutput = function ()
+  $.fn.reprint = function ()
   {
     $(this).replaceWith(function ()
     {
