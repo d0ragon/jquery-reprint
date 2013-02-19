@@ -1,10 +1,11 @@
-jquery-reload-element
+jquery-reprint
 =====================
 
-a function to reload any element with jquery
+Reprints, reloads, refreshes, or whatever you call it, matched elements.
+For images, css links and scripts forces the browser to reload them and not to read from the cache.
 
 
 Usage:
 ```javascript
-$(selector).reloadElement();
+$(selector).reprint();
 ```
