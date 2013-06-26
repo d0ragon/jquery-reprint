@@ -5,13 +5,16 @@ Reprints, reloads, refreshes, or whatever you call it, matched elements.
 For images, css links and scripts forces the browser to reload them and not to read from the cache.
 
 
-Usage:
+#### Usage:
 ```javascript
 $(selector).reprint();
 ```
+***
 
-### License
+##### License
 WTFPL
+
+***
 
 ###### To-do list:
 1. Replace all of regular expressions with a nicer one.
